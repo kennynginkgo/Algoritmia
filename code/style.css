@@ -1,0 +1,168 @@
+:root {
+    --fresa: 46px;
+    --verde: #2d9a4b;
+    --rojo: #c1121f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Fredoka', 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 14px;
+
+    /* Fondo tipo jardín: cielo arriba, pasto abajo, flores decorativas */
+    background:
+        radial-gradient(18px 18px at 8% 88%, #ffd166 96%, transparent),
+        radial-gradient(18px 18px at 22% 92%, #ef476f 96%, transparent),
+        radial-gradient(18px 18px at 88% 90%, #ffd166 96%, transparent),
+        radial-gradient(18px 18px at 76% 94%, #ef476f 96%, transparent),
+        radial-gradient(16px 16px at 50% 91%, #06d6a0 96%, transparent),
+        linear-gradient(to bottom, #cdeaffff 0%, #cdeaff 62%, #b7e4a1 62%, #8fce7a 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.tarjeta {
+    position: relative;
+    width: 100%;
+    max-width: 920px;
+    background-color: #ffffff;
+    border-radius: 22px;
+    padding: 26px 26px 120px;
+    text-align: center;
+    box-shadow: 8px 9px 18px 1px rgba(80, 60, 20, 0.25);
+}
+
+.titulo {
+    color: var(--rojo);
+    margin: 0 0 26px;
+}
+
+.operacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Cuadrícula de 5 columnas: si hay más de 5 fresas, se acomodan en otra fila */
+.fresas {
+    display: grid;
+    grid-template-columns: repeat(5, var(--fresa));
+    gap: 6px;
+    justify-content: center;
+    align-content: center;
+    min-height: calc(var(--fresa) * 2 + 6px);
+}
+
+.fresas img {
+    width: var(--fresa);
+    height: auto;
+}
+
+.grupo-resultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.zona {
+    padding: 10px;
+    border: 3px dashed var(--rojo);
+    border-radius: 14px;
+    background-color: #fff5f6;
+    transition: background-color 0.15s ease;
+}
+
+.zona.encima {
+    background-color: #ffd6db;
+}
+
+.zona img {
+    cursor: pointer;
+}
+
+.cesta {
+    width: 150px;
+    height: auto;
+}
+
+.signo {
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--rojo);
+    line-height: 1;
+}
+
+.boton {
+    margin-top: 26px;
+    padding: 10px 36px;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    color: #198754;
+    background-color: transparent;
+    border: 2px solid #198754;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.boton:hover {
+    background-color: #198754;
+    color: #ffffff;
+}
+
+.mensaje {
+    min-height: 1.6em;
+    margin: 14px 0 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.mensaje.ok { color: #198754; }
+.mensaje.error { color: var(--rojo); }
+
+/* Fresa grande y botón reiniciar, dentro de la tarjeta */
+.fresa-origen {
+    position: absolute;
+    left: 24px;
+    bottom: 20px;
+    width: 72px;
+    height: auto;
+    cursor: grab;
+}
+
+.reiniciar {
+    position: absolute;
+    right: 24px;
+    bottom: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--rojo);
+    background-color: #ffffff;
+    color: var(--rojo);
+    font-size: 28px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.reiniciar:hover {
+    background-color: var(--rojo);
+    color: #ffffff;
+}
+
+@media (max-width: 480px) {
+    :root { --fresa: 34px; }
+    .tarjeta { padding-bottom: 140px; }
+    .cesta { width: 130px; }
+}

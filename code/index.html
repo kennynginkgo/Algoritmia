@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma con fresas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="tarjeta">
+        <h1 class="titulo">¡Suma las fresas!</h1>
+
+        <div class="operacion">
+            <div class="fresas" id="grupoA"></div>
+            <span class="signo">+</span>
+            <div class="fresas" id="grupoB"></div>
+            <span class="signo">=</span>
+            <div class="grupo-resultado">
+                <div class="fresas zona" id="zona"></div>
+                <img class="cesta" src="cesta.png" alt="Cesta">
+            </div>
+        </div>
+
+        <button id="btnVerificar" class="boton">Verificar</button>
+        <p id="mensaje" class="mensaje"></p>
+
+        <img id="fresaOrigen" class="fresa-origen" src="fresa.png" draggable="true" alt="Fresa para arrastrar">
+        <button id="btnReiniciar" class="reiniciar" title="Nueva suma">↻</button>
+    </main>
+
+    <script src="codigo.js"></script>
+</body>
+</html>
